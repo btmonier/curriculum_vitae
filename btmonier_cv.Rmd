@@ -8,6 +8,9 @@ twitter: btmonier
 github: btmonier
 date: "`r format(Sys.time(), '%B %Y')`"
 output: vitae::hyndman
+header_includes:
+    - \ExecuteBibliographyOptions{useprefix=true}
+    - renewcommand{\bibfont}{\normalfont\fontsize{10}{12.4}\sffamily}
 ---
 
 ```{r setup, include=FALSE}
@@ -18,6 +21,33 @@ library(tidyverse)
 library(vitae)
 ```
 
+# Professional Experience
+\begin{tabular}{rll}
+    2018 - present & \textbf{Postdoctoral Researcher} in Dr. Ed Buckler's laboratory \\
+                   & School of Integrated Plant Sciences, Cornell University
+\end{tabular}
+
+\hfill
+
+# Education
+\begin{tabular}{rll}
+    2018 & \textbf{Ph.D.} & \textbf{Department of Biology and Microbiology} \\
+         &                & South Dakota State University \\
+         &                & \textit{Supervisors}: Drs. Heike B{\"u}cking and Jose Gonzalez-Hernandez \\[8pt]
+    2013 & \textbf{M.S.}  & \textbf{Department of Agronomy, Horticulture and Plant Science} \\
+         &                & South Dakota State University \\
+         &                & \textit{Supervisor}: Dr. Jose Gonzalez-Hernandez \\[8pt]
+    2008 & \textbf{B.S.}  & \textbf{Microbiology} \\
+         &                & South Dakota State Univeristy \\
+\end{tabular}
+
+\hfill
+
+# Programming Languages
+R, Python, Perl, bash/shell, C/C++, markup languages including \LaTeX,
+R Markdown, HTML, CSS, and some superficial knowledge of JavaScript, and Java.
+
+\hfill
 
 # Publications
 
@@ -35,6 +65,11 @@ bibliography_entries("btmonier_pubs.bib", title = "PhD Thesis") %>%
 bibliography_entries("btmonier_pubs.bib", title = "Book Chapters") %>%
   filter(bibtype %in% c("InBook")) %>%
   arrange(year, author)
+```
+
+```{r in_prep}
+bibliography_entries("btmonier_pubs.bib", title = "Research Papers (in preparation)") %>%
+    filter(grepl(pattern = "btm_pre", x = key))
 ```
 
 ```{r research_papers}
