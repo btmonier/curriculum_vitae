@@ -42,3 +42,4 @@ rsconnect/
 # vitae
 fonts
 *.cls
+*.log
