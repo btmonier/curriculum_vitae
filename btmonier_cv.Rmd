@@ -1,33 +1,44 @@
 ---
 name: Brandon Monier
-position: "Postdoctoral Research Fellow"
-address: "School of Integrative Plant Science, Cornell University"
-phone: +1 712-461-9855
+address: "School of Integrated Plant Sciences,\\tabularnewline Cornell University, Ithaca, New York"
 www: btmonier.github.io
+phone: +1 712-461-2851
 email: "brandon.monier@gmail.com"
 twitter: btmonier
 github: btmonier
-aboutme: Systems biology, bioinformatics, software development
 date: "`r format(Sys.time(), '%B %Y')`"
 output: vitae::hyndman
 ---
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = FALSE, warning = FALSE, message = FALSE)
-library(vitae)
+library(RefManageR)
 library(scholar)
+library(tidyverse)
+library(vitae)
 ```
 
 
 # Publications
 
-```{r publications}
-scholar::get_publications("buYGhlYAAAAJ") %>%
-  arrange(desc(year)) %>%
-  detailed_entries(
-    what = title,
-    when = year,
-    with = author,
-    where = journal
-  )
+```{r ms_thesis}
+bibliography_entries("btmonier_pubs.bib", title = "Master's Thesis") %>%
+    filter(bibtype == "MastersThesis")
+```
+
+```{r phd_thesis}
+bibliography_entries("btmonier_pubs.bib", title = "PhD Thesis") %>%
+    filter(bibtype == "PhdThesis")
+```
+
+```{r book_chapters}
+bibliography_entries("btmonier_pubs.bib", title = "Book Chapters") %>%
+  filter(bibtype %in% c("InBook")) %>%
+  arrange(year, author)
+```
+
+```{r research_papers}
+bibliography_entries("btmonier_pubs.bib", title = "Research Papers") %>%
+  filter(bibtype == "Article") %>%
+  arrange(year, author)
 ```
