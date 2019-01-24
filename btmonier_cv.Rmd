@@ -77,3 +77,16 @@ bibliography_entries("btmonier_pubs.bib", title = "Research Papers") %>%
   filter(bibtype == "Article") %>%
   arrange(year, author)
 ```
+
+\hfill
+
+# Teaching and Mentoring Experience
+\begin{tabular}{rll}
+    2018 & \textbf{Teaching Assistant} \\
+         & BOT-327L, Plant Physiology \\
+         & South Dakota State University \\
+    2016 & \textbf{Teaching Assistant} \\
+         & BIOL-153L, General Biology II \\
+         & South Dakota State University \\
+
+\end{tabular}
