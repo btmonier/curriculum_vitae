@@ -51,22 +51,6 @@ R Markdown, HTML, CSS, and some superficial knowledge of JavaScript, and Java.
 
 # Publications
 
-```{r ms_thesis}
-bibliography_entries("btmonier_pubs.bib", title = "Master's Thesis") %>%
-    filter(bibtype == "MastersThesis")
-```
-
-```{r phd_thesis}
-bibliography_entries("btmonier_pubs.bib", title = "PhD Thesis") %>%
-    filter(bibtype == "PhdThesis")
-```
-
-```{r book_chapters}
-bibliography_entries("btmonier_pubs.bib", title = "Book Chapters") %>%
-  filter(bibtype %in% c("InBook")) %>%
-  arrange(year, author)
-```
-
 ```{r in_prep}
 bibliography_entries("btmonier_pubs.bib", title = "Research Papers (in preparation)") %>%
     filter(grepl(pattern = "btm_pre", x = key))
@@ -76,6 +60,22 @@ bibliography_entries("btmonier_pubs.bib", title = "Research Papers (in preparati
 bibliography_entries("btmonier_pubs.bib", title = "Research Papers") %>%
   filter(bibtype == "Article") %>%
   arrange(year, author)
+```
+
+```{r book_chapters}
+bibliography_entries("btmonier_pubs.bib", title = "Book Chapters") %>%
+  filter(bibtype %in% c("InBook")) %>%
+  arrange(year, author)
+```
+
+```{r phd_thesis}
+bibliography_entries("btmonier_pubs.bib", title = "PhD Thesis") %>%
+    filter(bibtype == "PhdThesis")
+```
+
+```{r ms_thesis}
+bibliography_entries("btmonier_pubs.bib", title = "Master's Thesis") %>%
+    filter(bibtype == "MastersThesis")
 ```
 
 \hfill
