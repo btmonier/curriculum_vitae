@@ -1,6 +1,6 @@
 ---
 name: Brandon Monier
-address: "School of Integrated Plant Sciences,\\tabularnewline Cornell University, Ithaca, New York"
+address: "Institute for Genomic Diversity,\\tabularnewline Cornell University, Ithaca, New York"
 www: btmonier.github.io
 phone: +1 712-461-2851
 email: "brandon.monier@gmail.com"
@@ -43,8 +43,8 @@ library(vitae)
 
 \hfill
 
-# Programming Languages
-R, Python, Perl, bash/shell, C/C++, markup languages including \LaTeX,
+# Technologies
+R/Shiny, Python, Perl, bash/shell, C/C++, Neo4J/Cypher, markup languages including \LaTeX,
 R Markdown, HTML, CSS, and some superficial knowledge of JavaScript, and Java.
 
 \hfill
@@ -53,19 +53,20 @@ R Markdown, HTML, CSS, and some superficial knowledge of JavaScript, and Java.
 
 ```{r in_prep}
 bibliography_entries("btmonier_pubs.bib", title = "Research Papers (in preparation)") %>%
-    filter(grepl(pattern = "btm_pre", x = key))
+    filter(grepl(pattern = "\\\\noop", x = year))
 ```
 
 ```{r research_papers}
-bibliography_entries("btmonier_pubs.bib", title = "Research Papers") %>%
-  filter(bibtype == "Article") %>%
-  arrange(year, author)
+bibliography_entries("btmonier_pubs.bib", title = "Research Papers", sorting = "ydnt") %>%
+    filter(!grepl(pattern = "\\\\noop", x = year)) %>%
+    filter(bibtype == "Article") %>%
+    arrange(desc(year), author)
 ```
 
 ```{r book_chapters}
 bibliography_entries("btmonier_pubs.bib", title = "Book Chapters") %>%
-  filter(bibtype %in% c("InBook")) %>%
-  arrange(year, author)
+    filter(bibtype %in% c("InBook")) %>%
+    arrange(year)
 ```
 
 ```{r phd_thesis}
@@ -80,13 +81,29 @@ bibliography_entries("btmonier_pubs.bib", title = "Master's Thesis") %>%
 
 \hfill
 
-# Teaching and Mentoring Experience
+# Teaching Experience
 \begin{tabular}{rll}
-    2018 & \textbf{Teaching Assistant} \\
-         & BOT-327L, Plant Physiology \\
-         & South Dakota State University \\
-    2016 & \textbf{Teaching Assistant} \\
-         & BIOL-153L, General Biology II \\
-         & South Dakota State University \\
-
+    2018        & \textbf{Teaching Assistant} & BOT-327L, Plant Physiology \\
+                &                             & South Dakota State University \\
+    2016        & \textbf{Teaching Assistant} & BIOL-153L, General Biology II \\
+                &                             & South Dakota State University \\
+    2015        & \textbf{Teaching Assistant} & BOT-201L, General Botany \\
+                &                             & South Dakota State University \\
+    2014 - 2017 & \textbf{Teaching Assistant} & BIOL-151L, General Biology I \\
+                &                             & South Dakota State University \\
+    2011        & \textbf{Teaching Assistnat} & PS-333L, Diseases of Field Crops \\
+                &                             & South Dakota State University \\
 \end{tabular}
+
+\hfill
+
+# Mentoring Experience
+* \textit{April DeMell}, undergraduate (3 months, full-time), South Dakota State University, 2016
+* \textit{Clarissa Mercado}, undergraduate (3 months, full-time), South Dakota State University, 2016
+* \textit{Jerry Cordero Sepulv{\'e}da}, undergraduate (3 months, full-time) South Dakota State University, 2015
+* \textit{Winly Mai}, undergraduate (3 months, full-time), South Dakota State University, 2015
+* \textit{Merritt Burch}, undergraduate (3 months, full-time), South Dakota State University, 2014
+* \textit{Vincent Peta}, undergraduate (~9 months, part-time), South Dakota State University, 2013-2014
+* \textit{Sabrina Bushlack}, undergraduate (3 months, full-time), South Dakota State University, 2013
+* \textit{Linh Anh Cat}, undergraduate (3 months, full-time), South Dakota State University, 2013
+
