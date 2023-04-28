@@ -1,10 +1,9 @@
 ---
 name: Brandon Monier
 address: "Institute for Genomic Diversity,\\tabularnewline Cornell University, Ithaca, New York"
-www: btmonier.github.io
-phone: +1 712-461-2851
+www: btmonier.com
+phone: +1 712 461 2851
 email: "brandon.monier@gmail.com"
-twitter: btmonier
 github: btmonier
 date: "`r format(Sys.time(), '%B %Y')`"
 output: vitae::hyndman
@@ -19,91 +18,277 @@ library(RefManageR)
 library(scholar)
 library(tidyverse)
 library(vitae)
+
+constants <- list(
+    PUB_BIB_PATH = "bib/publications.bib",
+    SWR_BIB_PATH = "bib/software.bib",
+    PRS_BIB_PATH = "bib/presentations.bib"
+)
+
+pub_table <- bibliography_entries(constants$PUB_BIB_PATH)
+swr_table <- bibliography_entries(constants$SWR_BIB_PATH)
+prs_table <- bibliography_entries(constants$PRS_BIB_PATH)
 ```
-
-# Professional Experience
-\begin{tabular}{rll}
-    2018 - present & \textbf{Postdoctoral Researcher} in Dr. Ed Buckler's laboratory \\
-                   & School of Integrated Plant Sciences, Cornell University
-\end{tabular}
-
-\hfill
 
 # Education
 \begin{tabular}{rll}
     2018 & \textbf{Ph.D.} & \textbf{Department of Biology and Microbiology} \\
          &                & South Dakota State University \\
-         &                & \textit{Supervisors}: Drs. Heike B{\"u}cking and Jose Gonzalez-Hernandez \\[8pt]
     2013 & \textbf{M.S.}  & \textbf{Department of Agronomy, Horticulture and Plant Science} \\
          &                & South Dakota State University \\
-         &                & \textit{Supervisor}: Dr. Jose Gonzalez-Hernandez \\[8pt]
     2008 & \textbf{B.S.}  & \textbf{Microbiology} \\
-         &                & South Dakota State Univeristy \\
+         &                & South Dakota State University \\
 \end{tabular}
 
-\hfill
 
-# Technologies
-R/Shiny, Python, Perl, bash/shell, C/C++, Neo4J/Cypher, markup languages including \LaTeX,
-R Markdown, HTML, CSS, and some superficial knowledge of JavaScript, and Java.
+# Research Experience
 
-\hfill
+**Cornell University** | Postdoc | 2018-2023
+
+  * **Advisor** Edward Buckler
+  * **Delivered:**
+    + Worked with research institutions across African, Caribbean, Latin, and
+      North American countries to develop cloud computing infrastructure and 
+      breeding pipelines leveraging gene activity predictors for sorghum, 
+      cowpea, cassava, rice, and maize.
+    + Created R packages to interface TASSEL and practical haplotype graph
+      software with the R programming language.
+    + Developed methods to efficiently evaluate 1.8 million gene models across 
+      26 diverse maize assemblies. This involved assembling the gene 
+      space of ca. 400 grass species in the Andropogoneae tribe and aligning it 
+      to maize. Using this data, I helped lead a highly collaborative team to 
+      develop a series of machine learning models to predict if a gene model 
+      was to produce a functional protein by analyzing the structural 
+      characteristics of aligned transcripts.
+    + Created methods and pipelines for both genome- and transcriptome-wide 
+      association studies to evaluate water use efficiency and photosynthetic
+      traits in sorghum bioenergy panels.
+    + Designed a database that efficiently stores and queries ca. 1 billion 
+      genome-wide association study results in maize leveraging graph theory
+      and data structures for semantic querying and evaluation. This was used 
+      to evaluate the biological relevance in pleiotropy and the effect of 
+      variation in upstream open reading frames on protein abundance in maize.
+  
+**South Dakota State University** | Visiting Scholar | 2017-2018
+
+  * **Advisor** Qin Ma
+  * **Delivered:**
+    + Created a web server for cloud-based expression data analysis leveraging
+      the Shiny framework, Javascript, and commonly used bioinformatic 
+      libraries.
+    + Developed an R package to generate rapid, information-rich visualizations
+      for the interpretation of differential gene expression results from multiple
+      widely-used libraries for RNA-seq analysis.
+
+**South Dakota State University** | Graduate Research Assistant | 2013-2018
+
+  * **Advisors** Heike Bücking and Jose Gonzalez-Hernandez
+  * **Delivered**
+    + Examined the variability of microbial community structures across next
+      generation lignocellulosic feedstocks in the Upper Midwest regions of the
+      United States. This was accomplished by implementing high-throughput
+      amplicon sequencing and metagenomics approaches.
+    + Conducted RNA-seq analyses to determine the effect of arbuscular
+      mycorrhiza on differential expression in prairie cordgrass, switchgrass,
+      and _Brachypodium distachyon_ under varying nutrient conditions.
+    + Investigated the impact of arbuscular mycorrhizal communities on
+      lignocellulosic feedstock biomass production under varying nutrient
+      supply conditions. This was conducted through evaluations at both the
+      greenhouse and field level.
+
+**South Dakota State University** | Graduate Research Assistant | 2009-2013
+
+  * **Advisor** Jose Gonzalez-Hernandez
+  * **Delivered:**
+    + Helped establish a germplasm collection of the potential bioenergy crop,
+      prairie cordgrass. Samples were collected from across the Midwest region
+      of the United States. From this collection, I analyzed cytotypic
+      variation through flow cytometry.
+    + Created the first bacterial artificial chromosome library and protocols
+      for prairie cordgrass.
+
+\newpage
 
 # Publications
 
+## In preparation
 ```{r in_prep}
-bibliography_entries("btmonier_pubs.bib", title = "Research Papers (in preparation)") %>%
-    filter(grepl(pattern = "\\\\noop", x = year))
+pub_table |> filter(grepl("_inprep", id))
 ```
 
-```{r research_papers}
-bibliography_entries("btmonier_pubs.bib", title = "Research Papers", sorting = "ydnt") %>%
-    filter(!grepl(pattern = "\\\\noop", x = year)) %>%
-    filter(bibtype == "Article") %>%
-    arrange(desc(year), author)
+## Research Articles
+```{r research_articles}
+pub_table |> filter(type == "article-journal")
 ```
 
+## Book Chapters
 ```{r book_chapters}
-bibliography_entries("btmonier_pubs.bib", title = "Book Chapters") %>%
-    filter(bibtype %in% c("InBook")) %>%
-    arrange(year)
+pub_table |> filter(type == "book")
 ```
 
-```{r phd_thesis}
-bibliography_entries("btmonier_pubs.bib", title = "PhD Thesis") %>%
-    filter(bibtype == "PhdThesis")
+## PhD Dissertation
+```{r phd_dissertation}
+pub_table |> filter(id == "monier2018microbial")
 ```
 
-```{r ms_thesis}
-bibliography_entries("btmonier_pubs.bib", title = "Master's Thesis") %>%
-    filter(bibtype == "MastersThesis")
+## Master's Thesis
+```{r masters_thesis}
+pub_table |> filter(id == "monier2013analysis")
 ```
 
-\hfill
+\newpage
 
-# Teaching Experience
-\begin{tabular}{rll}
-    2018        & \textbf{Teaching Assistant} & BOT-327L, Plant Physiology \\
-                &                             & South Dakota State University \\
-    2016        & \textbf{Teaching Assistant} & BIOL-153L, General Biology II \\
-                &                             & South Dakota State University \\
-    2015        & \textbf{Teaching Assistant} & BOT-201L, General Botany \\
-                &                             & South Dakota State University \\
-    2014 - 2017 & \textbf{Teaching Assistant} & BIOL-151L, General Biology I \\
-                &                             & South Dakota State University \\
-    2011        & \textbf{Teaching Assistnat} & PS-333L, Diseases of Field Crops \\
-                &                             & South Dakota State University \\
-\end{tabular}
+# Software
 
-\hfill
+## R Packages
+```{r r_software}
+swr_table |> filter(grepl("^r_", id))
+```
 
-# Mentoring Experience
-* \textit{April DeMell}, undergraduate (3 months, full-time), South Dakota State University, 2016
-* \textit{Clarissa Mercado}, undergraduate (3 months, full-time), South Dakota State University, 2016
-* \textit{Jerry Cordero Sepulv{\'e}da}, undergraduate (3 months, full-time) South Dakota State University, 2015
-* \textit{Winly Mai}, undergraduate (3 months, full-time), South Dakota State University, 2015
-* \textit{Merritt Burch}, undergraduate (3 months, full-time), South Dakota State University, 2014
-* \textit{Vincent Peta}, undergraduate (~9 months, part-time), South Dakota State University, 2013-2014
-* \textit{Sabrina Bushlack}, undergraduate (3 months, full-time), South Dakota State University, 2013
-* \textit{Linh Anh Cat}, undergraduate (3 months, full-time), South Dakota State University, 2013
+## Web Applications and Databases
+```{r web_software}
+swr_table |> filter(grepl("^web_", id))
+```
+
+## Kotlin
+```{r kotlin_software}
+swr_table |> filter(grepl("^kotlin_", id))
+```
+
+## Perl
+```{r perl_software}
+swr_table |> filter(grepl("^perl", id))
+```
+
+
+
+# Teaching and Outreach
+* 2023 | **Taught two in-person classes** as part of the _Thomas Wyatt Turner
+  Lecture Series_ to 7 students at Cornell University. These classes covered
+  the R programming language and how we can use this for the biological 
+  sciences.
+* 2022 | **Taught two in-person workshops** as part of the _Feed the Future
+  Innovation Lab for Crop Improvement (ILCI) Annual Meeting_ to 22 researchers
+  in Senegal. These workshops entailed an overview of cloud computing
+  infrastructure developed for the ILCI program along with an intro to the
+  R package, `rTASSEL`.
+* 2022 | **Taught three virtual workshops** as part of the _Feed the Future
+  Innovation Lab for Crop Improvement (ILCI) JupyterHub Workshop_ to 26 
+  researchers at centers across Africa, Latin America, and the Caribbean 
+  Islands. These workshops entailed an overview of cloud computing methods,
+  computational notebooks, and an introductory course for data analyses in R.
+* 2020 | **Guest lectured one virtual class** as part of a _Computational
+  Biology_ class to 25 graduate students at Cornell University. For this class, 
+  I gave an overview of topics in machine learning and how the Buckler Lab 
+  applies these to current research. This also included running example models 
+  to predict transcription factor binding and expression for biologically 
+  relevant data.
+* 2019 | **Taught one in-person workshop** as part of the _Workshop on Cereal
+  Genomics_ to xx researchers at Cold Spring Harbor Laboratories. During this
+  workshop, I aided in the lecture and walkthrough of the `rTASSEL` software
+  and how this can be applied to genome-wide association models.
+* 2019 | **Taught a week long in-person workshop** as part of the _Wheat 
+  Coordinated Agriculture Project (CAP) Workshop_ to xx researchers at Cornell 
+  University. During this workshop, I aided in the lecture and walkthrough of
+  the Practical Haplotype Graph Software and R package (`rPHG`) developed in
+  the Buckler Lab.
+* 2018 | **Graduate Teaching Assistant** for _Plant Physiology_. The 
+  assistantship entailed teaching three lab sections to a total of xx students 
+  at South Dakota State University, creating lab materials (quizzes, lectures, 
+  slides), overseeing lab group research projects, and grading exams and 
+  reports.
+* 2016 | **Graduate Teaching Assistant** for _General Biology II_. The 
+  assistantship entailed teaching three lab sections to a total of xx students 
+  at South Dakota State University, creating lab materials (quizzes, lectures, 
+  slides), facilitating anatomical dissections, and grading exams and reports.
+* 2015 | **Graduate Teaching Assistant** for _General Botany II_. The 
+  assistantship entailed teaching four lab sections to a total of xx students
+  at South Dakota State University, creating lab materials (quizzes, lectures, 
+  slides), running experiments, facilitating tree and plant tours, and grading
+  exams.
+* 2014 - 2017 | **Graduate Teaching Assistant** for _General Biology I_. The 
+  assistantship entailed teaching 3 lab sections to a total of xx students over 
+  four years at South Dakota State University. In this class, I created lab 
+  materials (quizzes, lectures, slides), prepared and facilitated lab 
+  experiments, and graded exams and reports.
+* 2011 | **Graduate Teaching Assistant** for _Diseases of Field Crops_. The 
+  assistantship entailed teaching 1 lab section to a total of xx students at 
+  South Dakota State University, preparing lab work stations for assignments 
+  and examinations. Additionally, I graded quizzes and exams.
+
+
+# Skills
+
+## Programming languages
+bash, C++, Java, Javascript, Kotlin, Lua, Perl, Python, and R.
+
+## Web Development and Database Systems
+HTML/CSS, Node.js, Shiny, React.js, Cypher/Neo4j, and SQL/mySQL
+
+## Machine Learning
+Keras, Scikit-learn, and TensorFlow
+
+## Reporting
+Google Colab, Jupyter, \LaTeX, and Markdown
+
+## Cloud Computing Services
+Cornell High Performance Computing Services, Digital Ocean, and Heroku
+
+## Quantitative Genetics and Bioinformatics
+Association mapping (using mixed linear models, general linear models, matrix
+eQTL), genomic prediction (SNPs, RNA expression), imputation (Beagle, Practical 
+Haplotype Graph), RNA and DNA sequence analysis and alignment, genome 
+assembly and annotation, and metagenomics.
+
+## Molecular experience
+DNA and RNA extraction, PCR techniques (standard and quantitative real time), 
+gel electrophoresis techniques (standard, PAGE, pulsed-field, and denaturing 
+gradient), primer design, plasmid construction, bacterial artificial 
+chromosome library construction, flow cytometry, and microscopy.
+
+
+## Management and Mentoring
+* Mentored 8 graduate and undergraduate students:
+  + _April DeMell_, undergraduate (3 months, full-time), South Dakota State University, 2016
+  + _Clarissa Mercado_, undergraduate (3 months, full-time), South Dakota State University, 2016
+  + _Jerry Cordero Sepulvéda_, undergraduate (3 months, full-time) South Dakota State University, 2015
+  + _Winly Mai_, undergraduate (3 months, full-time), South Dakota State University, 2015
+  + _Merritt Burch_, undergraduate (3 months, full-time), South Dakota State University, 2014
+  + _Sabrina Bushlack_, undergraduate (3 months, full-time), South Dakota State University, 2013
+  + _Linh Anh Cat_, undergraduate (3 months, full-time), South Dakota State University, 2013
+  + _Vincent Peta_, graduate (~9 months, full-time), South Dakota State University, 2013-2014
+* Certified in a course called _Postdoc Leadership Program_ sponsored by the
+  Office of Postdoctoral Studies at Cornell University.
+
+# Presentations
+
+## Posters
+```{r posters}
+prs_table |> 
+    filter(grepl("^poster", id))
+```
+
+## Talks
+```{r talks}
+prs_table |> 
+    filter(grepl("^talk", id))
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
