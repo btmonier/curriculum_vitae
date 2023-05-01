@@ -220,7 +220,7 @@ swr_table |> filter(grepl("^perl", id))
 # Skills
 
 ## Programming languages
-bash, C++, Java, Javascript, Kotlin, Lua, Perl, Python, and R.
+Bash, C++, Java, Javascript, Kotlin, Lua, Perl, Python, and R.
 
 ## Web Development and Database Systems
 HTML/CSS, Node.js, Shiny, React.js, Cypher/Neo4j, and SQL/mySQL
