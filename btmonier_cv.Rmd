@@ -5,11 +5,9 @@ www: btmonier.com
 phone: +1 712 461 2851
 email: "brandon.monier@gmail.com"
 github: btmonier
+# orcid: 0000-0001-6797-1221
 date: "`r format(Sys.time(), '%B %Y')`"
 output: vitae::hyndman
-header_includes:
-    - \ExecuteBibliographyOptions{useprefix=true}
-    - renewcommand{\bibfont}{\normalfont\fontsize{10}{12.4}\sffamily}
 ---
 
 ```{r setup, include=FALSE}
@@ -107,7 +105,6 @@ prs_table <- bibliography_entries(constants$PRS_BIB_PATH)
     + Created the first bacterial artificial chromosome library and protocols
       for prairie cordgrass.
 
-\newpage
 
 # Publications
 
