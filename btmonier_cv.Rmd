@@ -32,12 +32,12 @@ prs_table <- bibliography_entries(constants$PRS_BIB_PATH)
 
 # Education
 \begin{tabular}{rll}
-    2018 & \textbf{Ph.D.} & \textbf{Department of Biology and Microbiology} \\
-         &                & South Dakota State University \\
-    2013 & \textbf{M.S.}  & \textbf{Department of Agronomy, Horticulture and Plant Science} \\
-         &                & South Dakota State University \\
+    2018 & \textbf{Ph.D.} & \textbf{Biology} \\
+         &                & Department of Biology and Microbiology, South Dakota State University \\
+    2013 & \textbf{M.S.}  & \textbf{Plant Science} \\
+         &                & Department of Agronomy, Horticulture and Plant Science, South Dakota State University \\
     2008 & \textbf{B.S.}  & \textbf{Microbiology} \\
-         &                & South Dakota State University \\
+         &                & Department of Biology and Microbiology, South Dakota State University \\
 \end{tabular}
 
 
@@ -184,11 +184,11 @@ swr_table |> filter(grepl("^perl", id))
   to predict transcription factor binding and expression for biologically 
   relevant data.
 * 2019 | **Taught one in-person workshop** as part of the _Workshop on Cereal
-  Genomics_ to xx researchers at Cold Spring Harbor Laboratories. During this
+  Genomics_ to 24 researchers at Cold Spring Harbor Laboratories. During this
   workshop, I aided in the lecture and walkthrough of the `rTASSEL` software
   and how this can be applied to genome-wide association models.
 * 2019 | **Taught a week long in-person workshop** as part of the _Wheat 
-  Coordinated Agriculture Project (CAP) Workshop_ to xx researchers at Cornell 
+  Coordinated Agriculture Project (CAP) Workshop_ to 22 researchers at Cornell 
   University. During this workshop, I aided in the lecture and walkthrough of
   the Practical Haplotype Graph Software and R package (`rPHG`) developed in
   the Buckler Lab.
