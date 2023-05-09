@@ -54,7 +54,7 @@ prs_table <- bibliography_entries(constants$PRS_BIB_PATH)
     + Developed methods to efficiently evaluate 1.8 million gene models across 
       26 diverse maize assemblies. This involved assembling the gene 
       space of ca. 400 grass species in the Andropogoneae tribe and aligning it 
-      to maize. Using this data, I helped lead a highly collaborative team to 
+      to maize. Using this data, I helped lead a diverse team to 
       develop a series of machine learning models to predict if a gene model 
       was to produce a functional protein by analyzing the structural 
       characteristics of aligned transcripts.
@@ -190,26 +190,26 @@ swr_table |> filter(grepl("^perl", id))
   the Practical Haplotype Graph Software and R package (`rPHG`) developed in
   the Buckler Lab.
 * 2018 | **Graduate Teaching Assistant** for _Plant Physiology_. The 
-  assistantship entailed teaching three lab sections to a total of xx students 
+  assistantship entailed teaching three lab sections to a total of 39 students 
   at South Dakota State University, creating lab materials (quizzes, lectures, 
   slides), overseeing lab group research projects, and grading exams and 
   reports.
 * 2016 | **Graduate Teaching Assistant** for _General Biology II_. The 
-  assistantship entailed teaching three lab sections to a total of xx students 
+  assistantship entailed teaching three lab sections to a total of 75 students 
   at South Dakota State University, creating lab materials (quizzes, lectures, 
   slides), facilitating anatomical dissections, and grading exams and reports.
 * 2015 | **Graduate Teaching Assistant** for _General Botany II_. The 
-  assistantship entailed teaching four lab sections to a total of xx students
+  assistantship entailed teaching four lab sections to a total of 100 students
   at South Dakota State University, creating lab materials (quizzes, lectures, 
   slides), running experiments, facilitating tree and plant tours, and grading
   exams.
 * 2014 - 2017 | **Graduate Teaching Assistant** for _General Biology I_. The 
-  assistantship entailed teaching 3 lab sections to a total of xx students over 
-  four years at South Dakota State University. In this class, I created lab 
+  assistantship entailed teaching 3 lab sections to a total of over 270 students 
+  over four years at South Dakota State University. In this class, I created lab 
   materials (quizzes, lectures, slides), prepared and facilitated lab 
   experiments, and graded exams and reports.
 * 2011 | **Graduate Teaching Assistant** for _Diseases of Field Crops_. The 
-  assistantship entailed teaching 1 lab section to a total of xx students at 
+  assistantship entailed teaching 1 lab section to a total of 20 students at 
   South Dakota State University, preparing lab work stations for assignments 
   and examinations. Additionally, I graded quizzes and exams.
 
