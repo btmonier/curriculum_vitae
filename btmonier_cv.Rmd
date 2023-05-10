@@ -12,8 +12,8 @@ output: vitae::hyndman
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = FALSE, warning = FALSE, message = FALSE)
-library(RefManageR)
-library(scholar)
+# library(RefManageR)
+# library(scholar)
 library(tidyverse)
 library(vitae)
 
@@ -64,7 +64,7 @@ prs_table <- bibliography_entries(constants$PRS_BIB_PATH)
     + Designed a database that efficiently stores and queries ca. 1 billion 
       genome-wide association study results in maize leveraging graph theory
       and data structures for semantic querying and evaluation. This was used 
-      to evaluate the biological relevance in pleiotropy and the effect of 
+      to evaluate the biological relevance of pleiotropy and the effect of 
       variation in upstream open reading frames on protein abundance in maize.
   
 **South Dakota State University** | Visiting Scholar | 2017-2018
@@ -75,8 +75,8 @@ prs_table <- bibliography_entries(constants$PRS_BIB_PATH)
       the Shiny framework, Javascript, and commonly used bioinformatic 
       libraries.
     + Developed an R package to generate rapid, information-rich visualizations
-      for the interpretation of differential gene expression results from multiple
-      widely-used libraries for RNA-seq analysis.
+      for the interpretation of differential gene expression results from 
+      multiple widely-used libraries for RNA-seq analysis.
 
 **South Dakota State University** | Graduate Research Assistant | 2013-2018
 
@@ -133,7 +133,6 @@ pub_table |> filter(id == "monier2018microbial")
 pub_table |> filter(id == "monier2013analysis")
 ```
 
-\newpage
 
 # Software
 
