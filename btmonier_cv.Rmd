@@ -4,8 +4,8 @@ address: "Institute for Genomic Diversity,\\tabularnewline Cornell University, I
 www: btmonier.com
 phone: +1 712 461 2851
 email: "brandon.monier@gmail.com"
-github: btmonier
-# orcid: 0000-0001-6797-1221
+# github: btmonier
+orcid: 0000-0001-6797-1221
 date: "`r format(Sys.time(), '%B %Y')`"
 output: vitae::hyndman
 ---
