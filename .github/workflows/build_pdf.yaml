@@ -1,0 +1,32 @@
+name: Build PDF
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v2
+
+    - name: Set up R
+      uses: r-lib/actions/setup-r@v1
+
+    - name: Install dependencies
+      run: |
+        Rscript -e "install.packages('rmarkdown')"
+        Rscript -e "install.packages('vitae')"
+        Rscript -e "install.packages('tidyverse')"
+
+    - name: Build PDF
+      run: Rscript -e "rmarkdown::render('btmonier_cv.Rmd')"
+
+    - name: Upload PDF artifact
+      uses: actions/upload-artifact@v2
+      with:
+        name: pdf-output
+        path: ./btmonier_cv.pdf
