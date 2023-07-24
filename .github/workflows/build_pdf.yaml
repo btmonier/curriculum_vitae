@@ -2,8 +2,7 @@ name: Build PDF
 
 on:
   push:
-    branches:
-      - main
+    branches: [main, master]
 
 jobs:
   build:
