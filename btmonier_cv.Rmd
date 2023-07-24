@@ -65,7 +65,7 @@ prs_table <- bibliography_entries(constants$PRS_BIB_PATH)
       to evaluate the biological relevance of pleiotropy and the effect of 
       variation in upstream open reading frames on protein abundance in maize.
   
-**South Dakota State University** | Visiting Scholar | 2017-2018
+**South Dakota State University** and **The Ohio State University** | Visiting Scholar | 2017-2018
 
   * **Advisor** Qin Ma
   * **Delivered:**
@@ -157,6 +157,12 @@ swr_table |> filter(grepl("^perl", id))
 
 
 # Teaching and Outreach
+* 2023 | **Taught one in-person workshop** as part of the _National
+  Association of Plant Breeders Conference_ to 60 researchers in Greenville
+  South Carolina. This workshop entailed an overview of a new cloud computing
+  service along with two R packages: `rTASSEL` and `rPHG` and how these
+  systems can be integrated to perform breeding-related analyses in relation
+  to the Practical Haplotype Graph.
 * 2023 | **Taught two in-person classes** as part of the _Thomas Wyatt Turner
   Lecture Series_ to 7 students at Cornell University. These classes covered
   the R programming language and how we can use this for the biological 
