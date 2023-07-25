@@ -22,7 +22,7 @@ jobs:
       run: |
         Rscript -e "install.packages('rmarkdown')"
         Rscript -e "install.packages('vitae')"
-        Rscript -e "install.packages('tidyverse')"
+        Rscript -e "install.packages('dplyr')"
 
     - name: Build PDF
       run: Rscript -e "rmarkdown::render('btmonier_cv.Rmd')"
