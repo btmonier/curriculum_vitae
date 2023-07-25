@@ -5,7 +5,7 @@ on:
     branches: [main, master]
 
 jobs:
-  build:
+  render_cv:
     runs-on: ubuntu-latest
 
     steps:
@@ -24,8 +24,11 @@ jobs:
         Rscript -e "install.packages('vitae')"
         Rscript -e "install.packages('dplyr')"
 
-    - name: Build PDF
-      run: Rscript -e "rmarkdown::render('btmonier_cv.Rmd')"
+    - name: Render PDF
+      uses: lc5415/rmarkdown-action@v1
+      with:
+        input_file: btmonier_cv.Rmd
+        output_format: pdf_document
 
     - name: Upload PDF artifact
       uses: actions/upload-artifact@v2
