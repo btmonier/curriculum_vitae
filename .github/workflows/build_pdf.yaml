@@ -21,6 +21,7 @@ jobs:
     - name: Install dependencies
       run: |
         sudo apt-get install texlive-latex-base
+        sudo apt install texlive-fonts-recommended
         Rscript -e "install.packages('dplyr')"
         Rscript -e "install.packages('rmarkdown')"
         Rscript -e "install.packages('vitae')"
