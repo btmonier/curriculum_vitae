@@ -20,7 +20,7 @@ jobs:
 
     - name: Install dependencies
       run: |
-        apt-get install texlive-latex-base
+        sudo apt-get install texlive-latex-base
         Rscript -e "install.packages('dplyr')"
         Rscript -e "install.packages('rmarkdown')"
         Rscript -e "install.packages('vitae')"
